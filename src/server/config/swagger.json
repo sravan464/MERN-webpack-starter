@@ -1,0 +1,37 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "MERN SWAGGER",
+    "description": "MERN stack with webpack and swagger",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/",
+  "tags": [
+    {
+      "name": "Messages",
+      "description": "API for messages in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/message": {
+      "get": {
+        "tags": ["message"],
+        "summary": "Get message in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {}
+          }
+        }
+      }
+    }
+  }
+}

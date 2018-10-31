@@ -5,8 +5,11 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
-
 const mongoose = require('mongoose');
+
+// swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../server/config/swagger.json');
 
 // routes
 const index = require('./routes/index');
@@ -37,7 +40,6 @@ app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().use
 app.use(helmet());
 app.use(helmet.hidePoweredBy());
 
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -47,6 +49,10 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 // Use Routes
 app.use('/api', index);
+
 app.listen(8080, () => console.log('Listening on port 8080!'));

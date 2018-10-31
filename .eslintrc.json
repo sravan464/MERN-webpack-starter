@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "no-console": "off",
+    "comma-dangle": "off",
+    "react/jsx-filename-extension": "off",
+    "react/prop-types": 0,
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "next",
+        "caughtErrors": "none",
+        "caughtErrorsIgnorePattern": "^ignore"
+      }
+    ],
+    "no-underscore-dangle": [
+      "error",
+      { "allow": ["__REDUX_DEVTOOLS_EXTENSION__"] }
+    ]
+  }
+}
